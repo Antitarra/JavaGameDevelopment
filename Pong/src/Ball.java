@@ -2,8 +2,6 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
-;
-
 public class Ball {
     int x, y;
     int size = 16;
@@ -56,10 +54,9 @@ public class Ball {
             vx = -speed;
         }
     }
-
+    
     public void render(Graphics g) {
         g.setColor(Color.RED);
         g.fillOval(x, y, size, size);
     }
-
 }
