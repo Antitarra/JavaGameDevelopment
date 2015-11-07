@@ -7,7 +7,8 @@ public class AIPaddle {
     int y;
     int width = 15;
     int height = 40;
-    int speed = 1;
+    int speed = 1;//changes speed of AI paddle
+
 
     boolean isTwoPlayer = false;
 
