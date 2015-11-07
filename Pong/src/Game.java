@@ -1,8 +1,4 @@
-import java.awt.BorderLayout;
-import java.awt.Canvas;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
+import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 
@@ -17,7 +13,7 @@ public class Game extends Canvas implements Runnable {
     InputHandler IH;
 
     JFrame frame; // Window of the game
-    public final int WIDTH = 400; // Width of window
+    public final int WIDTH = 600; // Width of window
     public final int HEIGHT = WIDTH / 16 * 9; // Height of window
     public final Dimension gameSize = new Dimension(WIDTH, HEIGHT); // Size of
 
@@ -92,10 +88,12 @@ public class Game extends Canvas implements Runnable {
         g.setColor(Color.BLACK);
         g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
 
+        int fontSize = 20;
+        g.setFont(new Font("Serif", Font.PLAIN, fontSize));
         g.setColor(Color.WHITE);
 
-        g.drawString("Player 1: " + p1Score, 5, 10);
-        g.drawString("Player 2: " + p2Score, getWidth() - 60, 10);
+        g.drawString("Player 1: " + p1Score, 105, 20);    //5, 10
+        g.drawString("Player 2: " + p2Score, getWidth() - 160, 20); //5, -60
 
         player.render(g);
         ai.render(g);
