@@ -1,2 +1,0 @@
-# JavaGameDevelopment
-SoftUni-TeamWork-Project
