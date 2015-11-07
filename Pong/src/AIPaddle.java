@@ -7,12 +7,13 @@ public class AIPaddle {
     int y;
     int width = 15;
     int height = 40;
-    int speed = 2;
+    public static int speed = 1;//Adjust AI paddle speed
 
     boolean isTwoPlayer = false;
 
     Rectangle boundingBox;
 
+    //is the paddle moving up or down
     boolean goingUp = false;
     boolean goingDown = false;
 
@@ -26,7 +27,7 @@ public class AIPaddle {
 
     public void tick(Game game) {
         boundingBox.setBounds(x, y, width, height);
-
+    //is this a two player game or a player vs. AI
         if (!isTwoPlayer) {
             if (game.ball.y < y && y >= 0) {
                 y -= speed;

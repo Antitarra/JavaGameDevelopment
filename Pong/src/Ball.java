@@ -1,6 +1,7 @@
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
+import java.util.Random;
 
 public class Ball {
     int x, y;
@@ -22,30 +23,39 @@ public class Ball {
 
     public void tick(Game game) {
         boundingBox.setBounds(x, y, size, size);
+        Random rand = new Random();
+
+
+
 
         if (x <= 0) {
             game.p2Score++;
             vx = speed;
+            AIPaddle.speed = rand.nextInt((2 - 1) + 1) + 1;
         }
 
         else if (x + size >= game.getWidth()) {
             game.p1Score++;
             vx = -speed;
+            AIPaddle.speed = rand.nextInt((2 - 1) + 1) + 1;
         }
         if (y <= 0) {
             vy = speed;
-
+            AIPaddle.speed = rand.nextInt((2 - 1) + 1) + 1;
         }
 
         else if (y + size >= game.getHeight()) {
             vy = -speed;
+            AIPaddle.speed = rand.nextInt((2 - 1) + 1) + 1;
         }
         x += vx;
         y += vy;
         paddleColide(game);
+
     }
 
     private void paddleColide(Game game) {
+
         if (boundingBox.intersects(game.player.boundingBox)) {
             vx = speed;
         }
