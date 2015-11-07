@@ -26,8 +26,6 @@ public class Ball {
         Random rand = new Random();
 
 
-
-
         if (x <= 0) {
             game.p2Score++;
             vx = speed;

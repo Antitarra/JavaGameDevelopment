@@ -24,6 +24,8 @@ public class Game extends Canvas implements Runnable {
 
     static boolean gameRunning = false;
     int p1Score, p2Score;
+    final int WIN_POINTS = 3;
+    boolean winner = false;
 
     public void run() {
         while (gameRunning) { // If gameRunning = true
@@ -72,9 +74,11 @@ public class Game extends Canvas implements Runnable {
     }
 
     public void tick() {
-        player.tick(this);
-        ai.tick(this);
-        ball.tick(this);
+        if(!winner) {
+            player.tick(this);
+            ai.tick(this);
+            ball.tick(this);
+        }
     }
 
     public void render() {
@@ -85,6 +89,9 @@ public class Game extends Canvas implements Runnable {
         }
 
         Graphics g = bs.getDrawGraphics();
+
+
+
         g.setColor(Color.BLACK);
         g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
 
@@ -95,9 +102,31 @@ public class Game extends Canvas implements Runnable {
         g.drawString("Player 1: " + p1Score, 105, 20);    //5, 10
         g.drawString("Player 2: " + p2Score, getWidth() - 160, 20); //5, -60
 
-        player.render(g);
-        ai.render(g);
-        ball.render(g);
+
+        if(p2Score == WIN_POINTS){
+
+            g.drawString("PRESS ESC", 250, 210);
+            g.setColor(Color.GREEN);
+            g.setFont(new Font("impact", Font.PLAIN, 50));
+            g.drawString("Player 2 WIN", 180, 180);
+            winner = true;
+
+
+        }else if(p1Score == WIN_POINTS){
+
+            g.drawString("PRESS ESC", 250, 210);
+            g.setColor(Color.blue);
+            g.setFont(new Font("impact", Font.PLAIN, 50));
+            g.drawString("Player 1 WIN", 180, 180);
+            winner = true;
+
+        }else {
+
+            player.render(g);
+            ai.render(g);
+            ball.render(g);
+
+        }
 
         g.dispose();
         bs.show();
