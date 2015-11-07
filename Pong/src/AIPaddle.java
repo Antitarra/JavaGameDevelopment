@@ -50,7 +50,7 @@ public class AIPaddle {
     }
 
     public void render(Graphics g) {
-        g.setColor(Color.BLUE);
+        g.setColor(Color.GREEN);
         g.fillRect(x, y, width, height);
     }
 }

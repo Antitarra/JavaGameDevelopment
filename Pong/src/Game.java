@@ -100,7 +100,7 @@ public class Game extends Canvas implements Runnable {
         g.setColor(Color.WHITE);
 
         g.drawString("Player 1: " + p1Score, 105, 20);    //5, 10
-        g.drawString("Player 2: " + p2Score, getWidth() - 160, 20); //5, -60
+        g.drawString("Player 2: " + p2Score, getWidth() - 180, 20); //5, -60
 
 
         if(p2Score == WIN_POINTS){
