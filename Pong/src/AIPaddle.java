@@ -9,7 +9,7 @@ public class AIPaddle {
     int height = 40;
     public static int speed = 1;//Adjust AI paddle speed
 
-    boolean isTwoPlayer = false;
+    public static boolean isTwoPlayer = false;
 
     Rectangle boundingBox;
 

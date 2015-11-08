@@ -23,7 +23,7 @@ public class Game extends Canvas implements Runnable {
             BufferedImage.TYPE_INT_RGB);
 
     static boolean gameRunning = false;
-    int p1Score, p2Score;
+    public static int p1Score, p2Score;
     final int WIN_POINTS = 3;
     boolean winner = false;
 

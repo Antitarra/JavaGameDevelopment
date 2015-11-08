@@ -8,7 +8,7 @@ public class PlayerPaddle {
     int y; // vertical coordinates
     int width = 15;
     int height = 40;
-    int speed = 2;
+    static int speed = 2;
 
     Rectangle boundingBox;
 

@@ -26,25 +26,55 @@ public class Ball {
         Random rand = new Random();
 
 
+
         if (x <= 0) {
             game.p2Score++;
             vx = speed;
-            AIPaddle.speed = rand.nextInt((2 - 1) + 1) + 1;
+            if(Game.p1Score==2){
+                AIPaddle.speed = 2;
+            }
+            else {
+                AIPaddle.speed = rand.nextInt((2 - 1) + 1) + 1;
+            }
         }
 
         else if (x + size >= game.getWidth()) {
             game.p1Score++;
             vx = -speed;
-            AIPaddle.speed = rand.nextInt((2 - 1) + 1) + 1;
+            int counter=0;
+            counter++;
+            if(Game.p1Score==2){
+                speed=3;
+                PlayerPaddle.speed=3;
+
+            }
+
+
+            if(Game.p1Score==2){
+                AIPaddle.speed = 2;
+            }
+            else {
+                AIPaddle.speed = rand.nextInt((2 - 1) + 1) + 1;
+            }
         }
         if (y <= 0) {
             vy = speed;
-            AIPaddle.speed = rand.nextInt((2 - 1) + 1) + 1;
+            if(Game.p1Score==2){
+                AIPaddle.speed = 2;
+            }
+            else {
+                AIPaddle.speed = rand.nextInt((2 - 1) + 1) + 1;
+            }
         }
 
         else if (y + size >= game.getHeight()) {
             vy = -speed;
-            AIPaddle.speed = rand.nextInt((2 - 1) + 1) + 1;
+            if(Game.p1Score==2){
+                AIPaddle.speed = 2;
+            }
+            else {
+                AIPaddle.speed = rand.nextInt((2 - 1) + 1) + 1;
+            }
         }
         x += vx;
         y += vy;
