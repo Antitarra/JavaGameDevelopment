@@ -4,6 +4,7 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JFrame;
 
+
 public class Game extends Canvas implements Runnable {
     private static final long serialVersionUID = 1L;
 
@@ -26,6 +27,9 @@ public class Game extends Canvas implements Runnable {
     public static int p1Score, p2Score;
     final int WIN_POINTS = 3;
     boolean winner = false;
+
+
+
 
     public void run() {
         while (gameRunning) { // If gameRunning = true
@@ -65,6 +69,9 @@ public class Game extends Canvas implements Runnable {
         frame.setResizable(false);
         frame.setTitle(TITLE);
         frame.setLocationRelativeTo(null); // This put the frame in center
+
+
+
 
         IH = new InputHandler(this);
 

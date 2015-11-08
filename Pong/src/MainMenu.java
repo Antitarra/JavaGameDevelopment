@@ -1,13 +1,9 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
 
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
+
 
 public class MainMenu extends JFrame {
     private static final long serialVersionUID = 1L;
@@ -19,16 +15,12 @@ public class MainMenu extends JFrame {
     int buttonHeight = 40;
 
     JButton vsComputer, vsPlayer, Quit;
-   // JCheckBox twoPlayers;
+    // JCheckBox twoPlayers;
 
     public MainMenu() {
 
-    	try {
-     		setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("menuBackground.png")))));
-     	} catch (IOException e) {
-     		e.printStackTrace();
-     	}
-    	
+
+
         addButtons();
         addActions();
 
@@ -48,6 +40,7 @@ public class MainMenu extends JFrame {
         getContentPane().add(Quit);
         //getContentPane().add(twoPlayers);
 
+
         pack();
         setVisible(true);
         setLocationRelativeTo(null);
@@ -55,7 +48,9 @@ public class MainMenu extends JFrame {
         setTitle("Pong Menu");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
-        
+
+
+
     }
 
     private void addButtons() {
@@ -66,23 +61,26 @@ public class MainMenu extends JFrame {
     }
 
     private void addActions() {
-        vsComputer.addActionListener(new ActionListener() { // Take Play button, add
+        vsComputer.addActionListener(new ActionListener() { // Take vsComputer button, add
 
             // new actionListener
-            public void actionPerformed(ActionEvent e) { // Turn the action
-                // performed into a
-                // variable for								// usage
+            public void actionPerformed(ActionEvent e) {
                 dispose();
                 Game game = new Game();
-                if (vsPlayer.isSelected()) {
-                    game.ai.isTwoPlayer = true;
-                } else {
-                    game.ai.isTwoPlayer = false;
-                }
-
                 game.start();
             }
-        }); // Play button
+        }); // vsComputer button
+
+        vsPlayer.addActionListener(new ActionListener() { // Take vsPlayer button, add
+
+            // new actionListener
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                Game game = new Game();
+                game.ai.isTwoPlayer=true;
+                game.start();
+            }
+        }); // vsPlayer button
 
         Quit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
