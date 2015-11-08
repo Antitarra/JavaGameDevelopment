@@ -1,9 +1,13 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 public class MainMenu extends JFrame {
     private static final long serialVersionUID = 1L;
@@ -19,11 +23,16 @@ public class MainMenu extends JFrame {
 
     public MainMenu() {
 
+    	try {
+     		setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("menuBackground.png")))));
+     	} catch (IOException e) {
+     		e.printStackTrace();
+     	}
+    	
         addButtons();
         addActions();
 
         getContentPane().setLayout(null);
-
 
         //button positioning
         vsComputer.setBounds((screenWidth - buttonWidth) / 2, 5, buttonWidth,
@@ -46,7 +55,7 @@ public class MainMenu extends JFrame {
         setTitle("Pong Menu");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
-
+        
     }
 
     private void addButtons() {
