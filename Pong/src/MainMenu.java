@@ -11,7 +11,7 @@ public class MainMenu extends JFrame {
     int screenWidth = 300;
     int screenHeight = 170;
 
-    int buttonWidth = 120;
+    int buttonWidth = 180;
     int buttonHeight = 40;
 
     JButton vsComputer, vsPlayer, Quit;
@@ -31,15 +31,12 @@ public class MainMenu extends JFrame {
                 buttonHeight);
         vsPlayer.setBounds((screenWidth - buttonWidth) / 2, 50, buttonWidth,
                 buttonHeight);
-        Quit.setBounds((screenWidth - buttonWidth) / 2, 95, buttonWidth,
+        Quit.setBounds((screenWidth - (buttonWidth-80)) / 2, 95, buttonWidth-80,
                 buttonHeight);
-        //twoPlayers.setBounds((screenWidth - buttonWidth) / 2, 90, buttonWidth, buttonHeight);
 
         getContentPane().add(vsComputer);
         getContentPane().add(vsPlayer);
         getContentPane().add(Quit);
-        //getContentPane().add(twoPlayers);
-
 
         pack();
         setVisible(true);
@@ -49,15 +46,13 @@ public class MainMenu extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
 
-
-
     }
 
     private void addButtons() {
-        vsComputer = new JButton("vsComputer");
-        vsPlayer = new JButton("vsPlayer");
+        vsComputer = new JButton("Player vs Computer");
+        vsPlayer = new JButton("Player vs Player");
         Quit = new JButton("Quit");
-        //twoPlayers = new JCheckBox("2 Players");
+
     }
 
     private void addActions() {

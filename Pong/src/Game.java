@@ -55,6 +55,9 @@ public class Game extends Canvas implements Runnable {
         gameRunning = false;
         System.exit(0);
     } // End stop method
+    public static synchronized void visible() {
+
+    }
 
     public Game() {
         frame = new JFrame();
