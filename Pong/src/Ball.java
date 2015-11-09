@@ -1,3 +1,4 @@
+import javax.tools.JavaCompiler;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
@@ -29,6 +30,7 @@ public class Ball {
 
         if (x <= 0) {
             game.p2Score++;
+            java.awt.Toolkit.getDefaultToolkit().beep();
             vx = speed;
             if(Game.ai.isTwoPlayer==false) {
                 if (Game.p1Score == 2) {
@@ -43,6 +45,7 @@ public class Ball {
 
         else if (x + size >= game.getWidth()) {
             game.p1Score++;
+            java.awt.Toolkit.getDefaultToolkit().beep();
             vx = -speed;
             int counter=0;
             counter++;
@@ -91,10 +94,12 @@ public class Ball {
 
         if (boundingBox.intersects(game.player.boundingBox)) {
             vx = speed;
+
         }
 
         else if (boundingBox.intersects(game.ai.boundingBox)) {
             vx = -speed;
+
         }
     }
     
