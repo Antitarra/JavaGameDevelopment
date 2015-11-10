@@ -33,8 +33,8 @@ public class InputHandler implements KeyListener {
 
         // Exit button *Esc*
         if (keyCode == KeyEvent.VK_ESCAPE) {
-
             new MainMenu();
+
         }
     }
 

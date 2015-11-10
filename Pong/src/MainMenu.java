@@ -31,7 +31,7 @@ public class MainMenu extends JFrame {
                 buttonHeight);
         vsPlayer.setBounds((screenWidth - buttonWidth) / 2, 50, buttonWidth,
                 buttonHeight);
-        Quit.setBounds((screenWidth - (buttonWidth-80)) / 2, 95, buttonWidth-80,
+        Quit.setBounds((screenWidth - (buttonWidth-90)) / 2, 95, buttonWidth-90,
                 buttonHeight);
 
         getContentPane().add(vsComputer);
