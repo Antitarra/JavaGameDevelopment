@@ -48,6 +48,8 @@ public class Game extends Canvas implements Runnable {
     }
 
     public synchronized void start() {
+        p1Score = 0;
+        p2Score = 0;
         gameRunning = true;
         new Thread(this).start();
     } // End start method
