@@ -33,11 +33,11 @@ public class InputHandler implements KeyListener {
 
         // Exit button *Esc*
         if (keyCode == KeyEvent.VK_ESCAPE) {
-            new MainMenu();
 
+            Game.stop();
+            new MainMenu();
         }
     }
-
 
     public void keyReleased(KeyEvent e) {
         int keyCode = e.getKeyCode();

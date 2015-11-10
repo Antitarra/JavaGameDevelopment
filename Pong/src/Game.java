@@ -16,7 +16,7 @@ public class Game extends Canvas implements Runnable {
     public static Ball ball;
     InputHandler IH;
 
-    JFrame frame; // Window of the game
+    static JFrame frame; // Window of the game
     public final int WIDTH = 590; // Width of window
     public final int HEIGHT = WIDTH / 16 * 9; // Height of window
     public final Dimension gameSize = new Dimension(WIDTH, HEIGHT); // Size of
@@ -31,9 +31,6 @@ public class Game extends Canvas implements Runnable {
     public static int p1Score, p2Score;
     final int WIN_POINTS = 5;
     boolean winner = false;
-
-
-
 
     public void run() {
         while (gameRunning) { // If gameRunning = true
@@ -57,7 +54,9 @@ public class Game extends Canvas implements Runnable {
 
     public static synchronized void stop() {
         gameRunning = false;
-        System.exit(0);
+        frame.dispose();
+        //System.exit(0);
+
     } // End stop method
     public static synchronized void visible() {
 
@@ -101,10 +100,6 @@ public class Game extends Canvas implements Runnable {
 
     public void render() {
 
-
-
-
-
         BufferStrategy bs = getBufferStrategy();
         if (bs == null) {
             createBufferStrategy(3);
@@ -114,9 +109,6 @@ public class Game extends Canvas implements Runnable {
         Graphics g = bs.getDrawGraphics();
 
         g.drawImage(image, 0, 0, null);
-
-//        g.setColor(Color.BLACK);
-//        g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
 
         int fontSize = 20;
         g.setFont(new Font("Serif", Font.PLAIN, fontSize));
