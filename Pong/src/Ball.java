@@ -32,15 +32,12 @@ public class Ball {
             game.p2Score++;
             java.awt.Toolkit.getDefaultToolkit().beep();
             vx = speed;
+
             if(Game.ai.isTwoPlayer==false) {
-                if (Game.p1Score == 2) {
-                    AIPaddle.speed = 2;
-                    speed = 3;
-                    PlayerPaddle.speed=3;
-                } else {
-                    AIPaddle.speed = rand.nextInt((2 - 1) + 1) + 1;
-                }
+                AIPaddle.speed = rand.nextInt((2 - 1) + 1) + 1;
             }
+
+
         }
 
         else if (x + size >= game.getWidth()) {
@@ -49,41 +46,30 @@ public class Ball {
             vx = -speed;
             int counter=0;
             counter++;
+
             if(Game.ai.isTwoPlayer==false) {
-                if (Game.p1Score == 2) {
-                    AIPaddle.speed = 2;
-                    speed = 3;
-                    PlayerPaddle.speed=3;
-                } else {
-                    AIPaddle.speed = rand.nextInt((2 - 1) + 1) + 1;
-                }
+                AIPaddle.speed = rand.nextInt((2 - 1) + 1) + 1;
             }
+
+
         }
         if (y <= 0) {
             vy = speed;
             if(Game.ai.isTwoPlayer==false) {
-                if (Game.p1Score == 2) {
-                    AIPaddle.speed = 2;
-                    speed = 3;
-                    PlayerPaddle.speed=3;
-                } else {
-                    AIPaddle.speed = rand.nextInt((2 - 1) + 1) + 1;
-                }
+                AIPaddle.speed = rand.nextInt((2 - 1) + 1) + 1;
             }
+
         }
 
         else if (y + size >= game.getHeight()) {
             vy = -speed;
+
             if(Game.ai.isTwoPlayer==false) {
-                if (Game.p1Score == 2) {
-                    AIPaddle.speed = 2;
-                    speed = 3;
-                    PlayerPaddle.speed=3;
-                } else {
-                    AIPaddle.speed = rand.nextInt((2 - 1) + 1) + 1;
-                }
+                AIPaddle.speed = rand.nextInt((2 - 1) + 1) + 1;
             }
-        }
+
+            }
+
         x += vx;
         y += vy;
         paddleColide(game);
