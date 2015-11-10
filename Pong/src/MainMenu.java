@@ -1,8 +1,12 @@
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
+import javax.imageio.ImageIO;
+import javax.swing.*;
 
 
 public class MainMenu extends JFrame {
@@ -19,7 +23,14 @@ public class MainMenu extends JFrame {
 
     public MainMenu() {
 
+        BufferedImage myImage = null;
+        try {
+            myImage = ImageIO.read(new File("background.jpg"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
+        setContentPane(new ImagePanel(myImage));
 
         addButtons();
         addActions();
@@ -82,5 +93,18 @@ public class MainMenu extends JFrame {
                 System.exit(0); // Game shutdown
             }
         }); // Quit button
+    }
+}
+class ImagePanel extends JComponent {
+    private Image image;
+
+    public ImagePanel(Image image){
+        this.image = image;
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.drawImage(image, 0, 0, null);
     }
 }

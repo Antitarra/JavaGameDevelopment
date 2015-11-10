@@ -1,7 +1,10 @@
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
 
@@ -14,9 +17,10 @@ public class Game extends Canvas implements Runnable {
     InputHandler IH;
 
     JFrame frame; // Window of the game
-    public final int WIDTH = 600; // Width of window
+    public final int WIDTH = 590; // Width of window
     public final int HEIGHT = WIDTH / 16 * 9; // Height of window
     public final Dimension gameSize = new Dimension(WIDTH, HEIGHT); // Size of
+   // public  Image image;
 
     public final String TITLE = "Pong";
 
@@ -25,7 +29,7 @@ public class Game extends Canvas implements Runnable {
 
     static boolean gameRunning = false;
     public static int p1Score, p2Score;
-    final int WIN_POINTS = 3;
+    final int WIN_POINTS = 5;
     boolean winner = false;
 
 
@@ -73,7 +77,11 @@ public class Game extends Canvas implements Runnable {
         frame.setTitle(TITLE);
         frame.setLocationRelativeTo(null); // This put the frame in center
 
-
+        try {
+            image = ImageIO.read(new File("gameBackground_resized.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
         IH = new InputHandler(this);
@@ -92,6 +100,11 @@ public class Game extends Canvas implements Runnable {
     }
 
     public void render() {
+
+
+
+
+
         BufferStrategy bs = getBufferStrategy();
         if (bs == null) {
             createBufferStrategy(3);
@@ -100,10 +113,10 @@ public class Game extends Canvas implements Runnable {
 
         Graphics g = bs.getDrawGraphics();
 
+        g.drawImage(image, 0, 0, null);
 
-
-        g.setColor(Color.BLACK);
-        g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
+//        g.setColor(Color.BLACK);
+//        g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
 
         int fontSize = 20;
         g.setFont(new Font("Serif", Font.PLAIN, fontSize));
