@@ -27,7 +27,7 @@ public class AIPaddle {
 
     public void tick(Game game) {
         boundingBox.setBounds(x, y, width, height);
-    //is this a two player game or a player vs. AI
+         //is this a two player game or a player vs. AI
         if(isTwoPlayer==true){
             speed = 2;
         }

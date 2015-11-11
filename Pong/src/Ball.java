@@ -33,8 +33,8 @@ public class Ball {
             java.awt.Toolkit.getDefaultToolkit().beep();
             vx = speed;
 
-            if(Game.ai.isTwoPlayer==false) {
-                AIPaddle.speed = rand.nextInt((2 - 1) + 1) + 1;
+            if(Game.ai.isTwoPlayer==false) {                   //if the game isnt PvP
+                AIPaddle.speed = rand.nextInt((2 - 1) + 1) + 1;//set a random speed for the AI paddle
             }
 
 
